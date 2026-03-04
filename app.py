@@ -19,7 +19,7 @@ def load_clip_model():
 
 model, processor = load_clip_model()
 
-# FIXED EMBEDDING + RGBA FIX
+# EMBEDDING + RGBA
 def get_image_embedding(image):
     inputs = processor(images=image.convert("RGB"), return_tensors="pt")
     with torch.no_grad():
@@ -64,7 +64,7 @@ with tab1:
         submitted = st.form_submit_button("🚨 Report as LOST")
         
         if submitted and file and desc and contact:
-            image = Image.open(file).convert("RGB")          # <-- FIXED RGBA error
+            image = Image.open(file).convert("RGB")    
             emb = get_image_embedding(image)
             ts = datetime.now().strftime("%Y%m%d_%H%M%S")
             path = os.path.join(UPLOAD_FOLDER, f"lost_{ts}.jpg")
@@ -80,7 +80,7 @@ with tab1:
                     with c1: st.image(m["image_path"], width=150)
                     with c2: st.write(f"**{m['desc']}** — Similarity: {s:.1%} — Contact: {m['contact']}")
 
-# ====================== REPORT FOUND ======================
+#           REPORT FOUND          
 with tab2:
     st.header("Report Found Item")
     with st.form("found_form", clear_on_submit=True):
@@ -107,7 +107,7 @@ with tab2:
                     with c1: st.image(m["image_path"], width=150)
                     with c2: st.write(f"**{m['desc']}** — Similarity: {s:.1%} — Contact: {m['contact']}")
 
-# ====================== VIEW ALL & STATS ======================
+#            VIEW ALL & STATS 
 with tab3:
     st.header("All Items")
     c1, c2 = st.columns(2)
@@ -130,5 +130,6 @@ with tab4:
     st.header("Stats")
     st.metric("Lost Items", len(db["lost"]))
     st.metric("Found Items", len(db["found"]))
+
 
 st.caption("AI Lost & Found • CLIP vision matching • 100% local")
