@@ -53,7 +53,7 @@ def find_matches(new_embedding, opposite_list, threshold=0.75):
 tab1, tab2, tab3, tab4 = st.tabs(["📌 Report Lost", "📌 Report Found", "🔎 View All", "📊 Stats"])
 db = load_db()
 
-# ====================== REPORT LOST ======================
+#            REPORT LOST 
 with tab1:
     st.header("Report Lost Item")
     with st.form("lost_form", clear_on_submit=True):
@@ -91,7 +91,7 @@ with tab2:
         submitted = st.form_submit_button("📍 Report as FOUND")
         
         if submitted and file and desc and contact:
-            image = Image.open(file).convert("RGB")          # <-- FIXED RGBA error
+            image = Image.open(file).convert("RGB")          
             emb = get_image_embedding(image)
             ts = datetime.now().strftime("%Y%m%d_%H%M%S")
             path = os.path.join(UPLOAD_FOLDER, f"found_{ts}.jpg")
@@ -133,3 +133,4 @@ with tab4:
 
 
 st.caption("AI Lost & Found • CLIP vision matching • 100% local")
+
