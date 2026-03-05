@@ -132,5 +132,6 @@ with tab4:
     st.metric("Found Items", len(db["found"]))
 
 
-st.caption("AI Lost & Found • CLIP vision matching • 100% local")
+st.caption("AI Lost & Found • CLIP vision matching ")
+
 
