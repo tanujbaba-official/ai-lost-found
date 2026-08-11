@@ -1,6 +1,6 @@
 # 🔍 Lost & Found System
 
-**Photo Matching ke saath Lost & Found System**  
+**Lost & Found System with Photo Matching **  
 Apartment, Society, College ya Office ke liye perfect.  
 
 Something Lost? Upload Photo.  
@@ -14,10 +14,10 @@ System automatically will match photo and will tell!
 - Lost Item Report (photo + description + location + contact)
 - Found Item Report (photo + description + location + contact)
 - Automatic Photo Matching (similar items will show)
-- All Items ka list with images
+- All Items list with images
 - Stats dashboard
 - Password protected (optional)
-- 100% Local storage (kuch bhi cloud pe nahi jaata)
+- 100% Local storage 
 - Mobile + Desktop both
 
 ---
